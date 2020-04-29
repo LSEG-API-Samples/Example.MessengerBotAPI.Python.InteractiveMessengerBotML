@@ -11,7 +11,7 @@ The Bot API includes a REST API and also provides a WebSocket to listen to event
 
 Today we are going to build our interactive Chatbot using Python with the [Messenger Bot API](https://developers.refinitiv.com/messenger-api/messenger-bot-api). We will implement a chatbot from scratch that will be able to understand what the user is talking about and give an appropriate response like below sample conversation.
 
-![Chat Conversation Sample](images/BotConversastion.jpg)
+![Chat Conversation Sample](https://raw.githubusercontent.com/Refinitiv-API-Samples/Example.MessengerBotAPI.Python.InteractiveMessengerBotML/master/images/BotConversastion.JPG)
 
 Interaction Chatbot implementation main challenges are:
 
@@ -368,7 +368,7 @@ def process_message(message_json):
 ```
 Below is a test result when running modified codes with BILATERAL chatroom.
 
-![Chat Conversation Sample](images/BotConversastion2.jpg)
+![Chat Conversation Sample](https://raw.githubusercontent.com/Refinitiv-API-Samples/Example.MessengerBotAPI.Python.InteractiveMessengerBotML/master/images/BotConversastion2.JPG)
 
 We are now successfully integrated our Model to the interactive Messenger BOT API.
 
@@ -417,7 +417,7 @@ The context_set is a set of context which could be an answer to the question. Th
 
 The below diagram is a sample scenario based on the JSON data. The white box in user input and blue box is for a BOT response.
 
-![conversation_diagram](images/Conversation_Context.jpg)
+![conversation_diagram](https://raw.githubusercontent.com/Refinitiv-API-Samples/Example.MessengerBotAPI.Python.InteractiveMessengerBotML/master/images/Conversation_Context.jpg)
 
 There are four orange bullets, each bullet represent situation of the conversation context.
 
@@ -437,7 +437,7 @@ We will add additional logics to handle the conversation context so you can find
 
 Below is a sample chat log after updating the codes to handle the conversation context.
 
-![MessengerChat](images/eikon_messenger.gif)
+![MessengerChat](https://raw.githubusercontent.com/Refinitiv-API-Samples/Example.MessengerBotAPI.Python.InteractiveMessengerBotML/master/images/eikon_messenger.gif)
 
 The additional implementation is beneficial in case you need to get input from the user and run an internal function or call external service to get some other data and return to the user.
 
@@ -465,7 +465,7 @@ There are two files you need to run.
   ```
   It will run Tensorflow to create model and save to file like following output.
 
-  ![MessengerChat](images/buildmodel.gif)
+  ![MessengerChat](https://raw.githubusercontent.com/Refinitiv-API-Samples/Example.MessengerBotAPI.Python.InteractiveMessengerBotML/master/images/buildmodel.gif)
 
 * ahsbot_demo_ws.py is a main ChatBot app. 
 Modify the following section in the Python codes. Change it to your account.
@@ -499,15 +499,15 @@ You will see the following output when the Message BOT API connected to the serv
 
 The Eikon Messenger will pop up welcome message we just sent to the Chatroom like the following screen shot.
 
-![welcomechatbot](images/welcomechatbot.jpg)
+![welcomechatbot](https://raw.githubusercontent.com/Refinitiv-API-Samples/Example.MessengerBotAPI.Python.InteractiveMessengerBotML/master/images/welcomechatbot.JPG)
 
 You can type 'bye' to left the Chatroom. The app will remove your account from participant list and shows message like the following screen shot.
 
-![quitchatbot](images/quitbot.jpg)
+![quitchatbot](https://raw.githubusercontent.com/Refinitiv-API-Samples/Example.MessengerBotAPI.Python.InteractiveMessengerBotML/master/images/quitbot.JPG)
 
 Below is sample output when testing Eikon Messenger with the ChatBot.
 
-![MessengerChat](images/runmessenger.gif)
+![MessengerChat](https://github.com/Refinitiv-API-Samples/Example.MessengerBotAPI.Python.InteractiveMessengerBotML/blob/master/images/runmessenger.gif)
 
 # Conclusion
 
