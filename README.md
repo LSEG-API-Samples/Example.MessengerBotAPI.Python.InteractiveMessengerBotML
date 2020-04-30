@@ -1,12 +1,12 @@
-# How to build Eikon Messenger Interactive ChatBot with Python Machine Learning and Messenger Bot API | Refinitiv
+# How to build Refinitiv Messenger Interactive ChatBot with Python Machine Learning and Messenger Bot API | Refinitiv
 
 ## Introduction
 
 Nowadays, Chatbots are extremely helpful for business organizations and also customers. The majority of people prefer to talk directly from a chatbox instead of calling a Helpdesks. Some of the more advanced chatbots are powered by AI, helping them to solve problems, send personalized messages, and improve their interactions over time.  It is a quick way to get their problems solved, so chatbots have a bright future in organizations. You can build a chatbot on top of the existing platforms and API. It does not look hard to study the background concepts and try to make it yourself. 
 
 Refinitiv also provides a new [Messenger Bot API](https://developers.refinitiv.com/messenger-api/messenger-bot-api), which provides a set of available API calls to build automated workflows or
-bots for Eikon Messenger. The Bot API allows your applications to connect with and pass information
-into Eikon's Messenger service programmatically and also build interactive chatbots.
+bots for Refinitiv messenger or Eikon Messenger. The Bot API allows your applications to connect with and pass information
+into Refinitiv's Messenger service programmatically and also build interactive chatbots.
 The Bot API includes a REST API and also provides a WebSocket to listen to events and to allow a bot to respond. All request and response bodies are encoded in JSON.
 
 Today we are going to build our interactive Chatbot using Python with the [Messenger Bot API](https://developers.refinitiv.com/messenger-api/messenger-bot-api). We will implement a chatbot from scratch that will be able to understand what the user is talking about and give an appropriate response like below sample conversation.
@@ -29,9 +29,9 @@ Conversations in messaging apps often need context. If you're conversing with a 
 
 # Prerequisites
 
-* You need to installation Eikon Messenger and you should be able to login to the messenger.
+* You need to installation Refinitiv Messenger and you should be able to login to the messenger.
 
-* You must have Eikon Desktop running in order to test functionality to retrieve prices and get time-series data using Eikon DATA API. And you need to install Eikon Data API using
+* You must have Refinitiv Workspace or Eikon Desktop running in order to test functionality to retrieve prices and get time-series data using Eikon DATA API. And you need to install Eikon Data API using
 
 ```command
 pip install eikon
@@ -43,7 +43,7 @@ pip install eikon
 
 * Python 3.7 or above
 
-* Download Python Example for the BOT API from [Github](https://github.com/Refinitiv-API-Samples/Example.MessengerChatBot.Python) and test chatbot_demo_ws.py example with your account. You need to modify the codes from the file to implement the ChatBot.
+* Download Messenger Bot API python example from [Github](https://github.com/Refinitiv-API-Samples/Example.MessengerChatBot.Python) and test chatbot_demo_ws.py example with your account. You need to modify the codes from the file to implement the ChatBot.
 
 * Install Tensorflow and Keras module. We use TensorFlow 2.1.0 with Keras 2.3.1. Please see [Tensorflow 2 install guide](https://www.tensorflow.org/install ) and [Keras installation guide](https://keras.io/#installation).
 
@@ -486,7 +486,7 @@ recipient_email = ['<recipient email address>']
 # Input BILATERAL Chat Room name
 bilateral_chatroom_name = "<name of BILATERAL chatroom you want to create>"
 ```
-You can set the following parameter to __False__ in case that you don't have Eikon Desktop to test. The Bot will generate Dummy data when you retreive the price.
+You can set the following parameter to __False__ in case that you don't have Refinitiv Workspace or  Eikon Desktop to test. The Bot will generate Dummy data when you retreive the price.
 ```python
 use_data_from_eikon =True
 ```
@@ -505,7 +505,7 @@ You can type 'bye' to left the Chatroom. The app will remove your account from p
 
 ![quitchatbot](https://raw.githubusercontent.com/Refinitiv-API-Samples/Example.MessengerBotAPI.Python.InteractiveMessengerBotML/master/images/quitbot.JPG)
 
-Below is sample output when testing Eikon Messenger with the ChatBot.
+Below is sample output when testing the Messenger app with the ChatBot.
 
 ![MessengerChat](https://github.com/Refinitiv-API-Samples/Example.MessengerBotAPI.Python.InteractiveMessengerBotML/blob/master/images/runmessenger.gif)
 
@@ -519,6 +519,7 @@ The future of Chatbots is very bright with the advancement in the Artificial Int
 # References
 
 * [Messenger Bot API](https://developers.refinitiv.com/messenger-api/messenger-bot-api)
+* [Refinitiv Messenger](https://www.refinitiv.com/en/products/refinitiv-messenger)
 * [Messenger Bot example](https://github.com/Refinitiv-API-Samples/Example.MessengerChatBot.Python)
 * [Messenger Bot API document](https://developers.refinitiv.com/messenger-api/messenger-bot-api/docs?content=81683&type=documentation_item)
 * [Keras GitHub Examples](https://github.com/keras-team/keras/tree/master/examples)
