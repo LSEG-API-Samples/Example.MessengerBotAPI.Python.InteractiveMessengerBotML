@@ -82,12 +82,12 @@ bot_api_base_path = '/messenger/beta1'
 
 def authen_rdp(rdp_token_object):  # Call RDPTokenManagement to get authentication
     # Based on WebSocket application behavior, the Authentication will not read/write Token from rest-token.txt file
-    auth_token = rdp_token_object.get_token(save_token_to_file=False)
+    auth_token = rdp_token_object.get_token(save_token_to_file=False,  current_refresh_token = refresh_token)
     if auth_token:
-        # return RDP access token (sts_token) , expire_in values and RDP login status
-        return auth_token['access_token'], auth_token['expires_in'], True
+        # return RDP access token (sts_token) ,refresh_token , expire_in values and RDP login status
+        return auth_token['access_token'], auth_token['refresh_token'], auth_token['expires_in'] , True
     else:
-        return None, 0, False
+        return None,None, 0, False
 
 
 def inviteToChatRooms(contact_mail, room_id):
