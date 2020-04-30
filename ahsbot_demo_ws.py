@@ -632,17 +632,14 @@ def process_message(message_json):  # Process incoming message from a joined Cha
                     contextAction.pop(sender)
                     post_message_to_chatroom(access_token, chatroom_id, str(actionValue))
                     remove_participant(access_token,chatroom_id,sender)     
-
                 elif contextAction[sender]['actionName'] == "getsnapshot":
-                    ricName = actionValue
-                    resp_msg = '@'+sender+' '+getsnapshot(ricName)
+                    resp_msg = '@'+sender+' '+getsnapshot(actionValue)
                     print(resp_msg)
                     contextAction.pop(sender)
                     post_message_to_chatroom(
                         access_token, chatroom_id, str(resp_msg))
                 elif contextAction[sender]['actionName'] == "gettimeseries":
-                    ricName = actionValue
-                    resp_msg = '@{} {}'.format(sender,gettimeseries(ricName))
+                    resp_msg = '@{} {}'.format(sender,gettimeseries(actionValue))
                     print(resp_msg)
                     contextAction.pop(sender)
                     post_message_to_chatroom(
@@ -651,11 +648,12 @@ def process_message(message_json):  # Process incoming message from a joined Cha
                     confidence_level = float(actionValue)
                     resp_msg = 'Confidence Level is now adjusted to {}'.format(actionValue)
                     print(resp_msg)
-                    contextAction.pop(sender)
                     # add delay 1 sec otherwise may experience toomany request error
                     time.sleep(1)
                     post_message_to_chatroom(
                         access_token, chatroom_id, resp_msg)
+
+                contextAction.pop(sender)
             print(contextAction)
             print(context)
             print('Current Confidence Level {}'.format(confidence_level))
