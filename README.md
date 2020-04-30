@@ -47,10 +47,10 @@ pip install eikon
 
 * Install Tensorflow and Keras module. We use TensorFlow 2.1.0 with Keras 2.3.1. Please see [Tensorflow 2 install guide](https://www.tensorflow.org/install ) and [Keras installation guide](https://keras.io/#installation).
 
-* Install Python library by using below command. Note that if you found error when install Tensorflow or Keras, you may need to following instructure on thier website to install the libary from github.
+* You can install other Python library by using below ws-requirement.txt file. Note that if you found error when install Tensorflow or Keras, you may need to following instructure on thier website to install the libary from github.
 
 ```command
-pip install ws-requirements.txt
+pip install -r ws-requirements.txt
 ```
 
 # Creating ChatBot
