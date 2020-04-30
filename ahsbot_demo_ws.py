@@ -51,6 +51,7 @@ intents_filename = 'ahsbot_intents.json'
 pickle_model_filename = 'ahsbot-model.pkl'
 pickle_data_filename = 'ahsbot-data.pkl'
 
+
 # Set wether or not app will retreive data from Eikon using Eikon Data API. This options for the case that user does not have Eikon.
 # App will post dummy price and send it back to use.
 use_data_from_eikon =True
@@ -68,7 +69,7 @@ rdp_token = None
 access_token = None
 expire_time = 0
 logged_in = False
-
+refresh_token = None
 # Chatroom objects
 chatroom_id = None
 
@@ -81,6 +82,7 @@ bot_api_base_path = '/messenger/beta1'
 # =============================== RDP and Messenger BOT API functions ========================================
 
 def authen_rdp(rdp_token_object):  # Call RDPTokenManagement to get authentication
+    global refresh_token
     # Based on WebSocket application behavior, the Authentication will not read/write Token from rest-token.txt file
     auth_token = rdp_token_object.get_token(save_token_to_file=False,  current_refresh_token = refresh_token)
     if auth_token:
@@ -683,11 +685,11 @@ if __name__ == '__main__':
 
     print('Getting RDP Authentication Token')
 
-    # Create and initiate RDPTokenManagement object
+      # Create and initiate RDPTokenManagement object
     rdp_token = RDPTokenManagement(bot_username, bot_password, app_key, 30)
 
     # Authenticate with RDP Token service
-    access_token, expire_time, logged_in = authen_rdp(rdp_token)
+    access_token, refresh_token, expire_time, logged_in = authen_rdp(rdp_token)
     
     # if not auth_token:
     if not access_token:
