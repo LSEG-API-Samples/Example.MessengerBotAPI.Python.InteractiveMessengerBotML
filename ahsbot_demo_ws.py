@@ -486,7 +486,7 @@ def getsnapshot(ricList):
     message = ""
     if use_data_from_eikon:
         try:
-            data, err = ek.get_data([ricList], ["TR.Open","TR.PriceClose", "TR.Volume", "TR.PriceLow"])
+            data, err = ek.get_data([ricList], ["TR.Open","TR.PriceClose", "TR.Volume","TR.PriceHigh","TR.PriceLow"])
             if err:
                 message = "Sorry unable to retreive data for {} {}".format(ricList,err[0]['message'])
             else:
@@ -628,6 +628,7 @@ def process_message(message_json):  # Process incoming message from a joined Cha
             if sender in contextAction:
                 print(contextAction)
                 actionValue = contextAction[sender]['actionValue']
+                # Process context based on actionName
                 if contextAction[sender]['actionName'] == "goodbye":
                     contextAction.pop(sender)
                     post_message_to_chatroom(access_token, chatroom_id, str(actionValue))
@@ -650,8 +651,7 @@ def process_message(message_json):  # Process incoming message from a joined Cha
                     print(resp_msg)
                     # add delay 1 sec otherwise may experience toomany request error
                     time.sleep(1)
-                    post_message_to_chatroom(
-                        access_token, chatroom_id, resp_msg)
+                    post_message_to_chatroom(access_token, chatroom_id, resp_msg)
 
                 contextAction.pop(sender)
             print(contextAction)
