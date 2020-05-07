@@ -181,7 +181,7 @@ And this is the output of vocabulary creation. There are 16 intents or classes a
 107 unique stemmed words ['#', "'s", ',', '.', '.net', '4.x', 'a', 'ad', 'adh', 'adjust', 'al', 'any', 'anyon', 'ap', 'ar', 'awesom', 'be', 'bye', 'c', 'c++', 'can', 'chang', 'chat', 'clear', 'confid', 'context', 'could', 'dac', 'dat', 'day', 'desktop', 'do', 'downalod', 'download', 'downoad', 'eikon', 'elektron', 'em', 'esdk', 'et', 'for', 'from', 'gcc', 'get', 'github', 'giv', 'good', 'goodby', 'hello', 'help', 'hi', 'hist', 'how', 'i', 'is', 'jav', 'lat', 'latest', 'level', 'linux', 'list', 'me', 'next', 'nic', 'of', 'off', 'ok', 'on', 'op', 'os', 'plan', 'pric', 'provid', 'publ', 'python', 'real', 'reset', 'retreiv', 'retriev', 'rfa', 'rfa.net', 'rhel7', 'sdk', 'see', 'snapshot', 'stock', 'support', 'thank', 'that', 'ther', 'til', 'tim', 'timesery', 'to', 'trep', 'ubuntu', 'up', 'us', 'vert', 'want', 'way', 'what', 'wher', 'which', 'window', 'with', 'you']
 ```
 
-We need to convert words into bags of words with arrays containing 0 or 1. Array length will be equal to vocabulary size and 1 will be set when a word from the current pattern is located in the given position:
+Because machine learning is all about math, all data needs to be converted to numbers or numeric arrays. We need to convert words into bags of words with arrays containing 0 or 1. Array length will be equal to vocabulary size and 1 will be set when a word from the current pattern is located in the given position:
 
 ```python
 # create our training data
