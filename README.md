@@ -1,6 +1,5 @@
-# How to build Refinitiv Messenger Interactive ChatBot with Python Machine Learning and Messenger Bot API | Refinitiv
+# How to build Refinitiv Messenger Interactive ChatBot with Python Machine Learning and Messenger Bot API 
 
-## Introduction
 
 Nowadays, Chatbots are extremely helpful for business organizations and also customers. The majority of people prefer to talk directly from a chatbox instead of calling a Helpdesks. Some of the more advanced chatbots are powered by AI, helping them to solve problems, send personalized messages, and improve their interactions over time.  It is a quick way to get their problems solved, so chatbots have a bright future in organizations. You can build a chatbot on top of the existing platforms and API. It does not look hard to study the background concepts and try to make it yourself. 
 
@@ -17,11 +16,11 @@ Interaction Chatbot implementation main challenges are:
 
 __Step1: Building the Deep Learning Model__
 
-This step, we need to translate user input to recognize the intent. It can be solved with Machine Learning, and we are using Keras with TensorFlow backend in this project. We need to build a model using Keras and save it to local storage to re-use it in the main implementation of the ChatBot.
+This step, we need to translate user input to recognize the intent. It can be solved with Machine Learning, and we are using Keras with TensorFlow backend in this project. We need to build a model using Keras and save it to local storage to reuse it in the main implementation of the ChatBot.
 
 __Step 2: Integrate Model with Message Bot API__
 
-We need to integrate implementation from steps 1 and 2 with Messenger Bot API to send and receive a message from a user's input. To make it short, we will modify the implementation of the Python example chatbot_demo_ws.py which provided in [Messenger Bot example](https://github.com/Refinitiv-API-Samples/Example.MessengerChatBot.Python) to integarte our ChatBot with original codes.
+We need to integrate implementation from steps 1 and 2 with Messenger Bot API to send and receive a message from a user's input. To make it short, we will modify the implementation of the Python example chatbot_demo_ws.py, which provided in [Messenger Bot example](https://github.com/Refinitiv-API-Samples/Example.MessengerChatBot.Python) to integrate our ChatBot with original codes.
 
 __Step3: Keep track of the conversation context__
 
@@ -31,7 +30,7 @@ Conversations in messaging apps often need context. If you're conversing with a 
 
 * You need to installation Refinitiv Messenger and you should be able to login to the messenger.
 
-* You must have Refinitiv Workspace or Eikon Desktop running in order to test functionality to retrieve prices and get time-series data using Eikon DATA API. And you need to install Eikon Data API using
+* You must have Refinitiv Workspace or Eikon Desktop running to test functionality to retrieve prices and get time-series data using Eikon DATA API. And you need to install Eikon Data API using
 
 ```command
 pip install eikon
@@ -39,15 +38,15 @@ pip install eikon
 
 * Please read [Messenger BOT API Quick Start Guide](https://developers.refinitiv.com/messenger-api/messenger-bot-api/quick-start) and follow the instruction in the guide to setup Chat Bot account and create a chat room for the test. 
 
-* Please read [Bot API Developer document](https://developers.refinitiv.com/messenger-api/messenger-bot-api/docs?content=81683&type=documentation_item). You need to understand the HTTP request and response message, Websocket implementation for interactive bot along with the structure of data and limitation of the API.
+* Please read [Bot API Developer document](https://developers.refinitiv.com/messenger-api/messenger-bot-api/docs?content=81683&type=documentation_item). You need to understand the HTTP request and response message, Websocket implementation for interactive Bot along with the structure of data and limitation of the API.
 
 * Python 3.7 or above
 
-* Download Messenger Bot API python example from [Github](https://github.com/Refinitiv-API-Samples/Example.MessengerChatBot.Python) and test chatbot_demo_ws.py example with your account. You need to modify the codes from the file to implement the ChatBot.
+* Download the Messenger Bot API python example from [Github](https://github.com/Refinitiv-API-Samples/Example.MessengerChatBot.Python) and test chatbot_demo_ws.py example with your account. You need to modify the codes from the file to implement the ChatBot.
 
 * Install Tensorflow and Keras module. We use TensorFlow 2.1.0 with Keras 2.3.1. Please see [Tensorflow 2 install guide](https://www.tensorflow.org/install ) and [Keras installation guide](https://keras.io/#installation).
 
-* You can install other Python library by using below ws-requirement.txt file. Note that if you found error when install Tensorflow or Keras, you may need to following instructure on thier website to install the libary from github.
+* You can install other Python library by using below ws-requirement.txt file. Note that if you found error when installing Tensorflow or Keras, you may need to follow the instruction on the Tensorflow website to install the library from GitHub.
 
 ```command
 pip install -r ws-requirements.txt
@@ -59,7 +58,7 @@ Let start by classification model training to classify the input from the user. 
 
 ## Step 1: Building the Deep Learning Model
 
-There are many popular articles describing how to use Keras and TensorFlow to create the model. And this article will apply the codes and knowledge from this [article](https://towardsdatascience.com/build-it-yourself-chatbot-api-with-keras-tensorflow-model-f6d75ce957a5)  with additional knowledge from [Keras document](https://keras.io/getting-started/sequential-model-guide/) to create a classification model.
+Many popular articles are describing how to use Keras and TensorFlow to create the model. And this article will apply the codes and knowledge from this [article](https://towardsdatascience.com/build-it-yourself-chatbot-api-with-keras-tensorflow-model-f6d75ce957a5)  with additional sample from [Keras document](https://keras.io/getting-started/sequential-model-guide/) to create a classification model.
 
 Below is a list of Python libraries that are used in the implementation. Keras deep learning library is used to build a classification model. Keras runs training on top of the TensorFlow backend. Lancaster stemming library from NLTK package is used to collapse distinct word forms:
 
@@ -140,7 +139,7 @@ We need to create an intents file, which is a plain JSON file.No need to have a 
 Before we could start with classification model training, we need to build vocabulary first. Patterns are processed to create a vocabulary. Each word is stemmed to produce generic root, and this would help to cover more combinations of user input:
 
 ```python
-# import our chat-bot intents file
+# import our chatbot intents file
 import json
 with open('ahsbot_intents.json') as json_data:
     intents = json.load(json_data)
@@ -189,15 +188,15 @@ We need to convert words into bags of words with arrays containing 0 or 1. Array
 training = []
 # create an empty array for our output
 output_empty = [0] * len(classes)
-# training set, bag of words for each sentence
+# training set, a bag of words for each sentence
 for doc in documents:
     # initialize our bag of words
     bag = []
     # list of tokenized words for the pattern
     pattern_words = doc[0]
-    # stem each word - create base word, in attempt to represent related words
+    # stem each word - create a base word, in an attempt to represent related words
     pattern_words = [stemmer.stem(word.lower()) for word in pattern_words]
-    # create our bag of words array with 1, if word match found in current pattern
+    # create our bag of words array with one if word match found in the current pattern
     for w in words:
         bag.append(1) if w in pattern_words else bag.append(0)
     
@@ -255,7 +254,7 @@ pickle.dump(model, open("ahsbot-model.pkl", "wb"))
 pickle.dump( {'words':words, 'classes':classes, 'train_x':train_x, 'train_y':train_y}, open( "ahsbot-data.pkl", "wb" ) )
 
 ```
-You can find a full python code to train the bot from __traindata.py__ file. You need to run it to re-train the bot when you add data to the intents file.
+You can find a full python code to train the Bot from __traindata.py__ file. You need to run it to re-train the Bot when you add data to the intents file.
 
 ## Step 2: Integrate Machine Learning Model with Message Bot API
 
@@ -298,7 +297,6 @@ def classify(sentence):
 
 Next step, we will create a botResponse method and then use the classify function to get a result and provide a response back to a user.
 
-
 ```python
 def botResponse(sentence, userID):
     import random
@@ -325,12 +323,12 @@ It will return the sentence from the ahsbot-intents.json file which matches with
 
 ```
 User: Can I use EMA with .NET?
-Bot: Currently Elektron SDK(ESDK) does not support .NET. Only C++ and Java version available on https://github.com/Refinitiv/Elektron-SDK or https://developers.refinitiv.com/elektron/apis-in-this-family
+Bot: Currently, Elektron SDK(ESDK) does not support .NET. Only C++ and Java version available on https://github.com/Refinitiv/Elektron-SDK or https://developers.refinitiv.com/elektron/apis-in-this-family
 ```
 
 ```
 User: Where can I download RFA C++?
-Bot: Navigate to API of your choice from developer portal https://developers.refinitiv.com/thomson-reuters-enterprise-platform/apis-in-this-family, there is download section in each API.Note that only RDC named user can access the page.
+Bot: Navigate to API of your choice from developer portal https://developers.refinitiv.com/thomson-reuters-enterprise-platform/apis-in-this-family, there is a download section in each API. Note that only RDC named user can access the page.
 
 ```
 
@@ -370,13 +368,12 @@ Below is a test result when running modified codes with BILATERAL chatroom.
 
 ![Chat Conversation Sample](https://raw.githubusercontent.com/Refinitiv-API-Samples/Example.MessengerBotAPI.Python.InteractiveMessengerBotML/master/images/BotConversastion2.JPG)
 
-We are now successfully integrated our Model to the interactive Messenger BOT API.
+We are now successfully integrated our model to the interactive Messenger BOT API.
 
 ## Step 3: Keep track of the conversation context
 
-The last steps we need to handle the context flow between ChatBot and user. There is the scenario that the question may require additional input from user inorder to flow to the next conversation. 
-
-Check the following sample JSON data, you should see some object has context_set and context_link tag.
+In the last step, we need to handle the context flow between ChatBot and the user. There is the scenario that the question may require additional input from the user to flow to the next conversation.
+Check the following sample JSON data, and you should see some object has context_set and context_link tag.
 
 ```json
        {
@@ -419,7 +416,7 @@ The below diagram is a sample scenario based on the JSON data. The white box in 
 
 ![conversation_diagram](https://raw.githubusercontent.com/Refinitiv-API-Samples/Example.MessengerBotAPI.Python.InteractiveMessengerBotML/master/images/Conversation_Context.jpg)
 
-There are four orange bullets, each bullet represent situation of the conversation context.
+There are four orange bullets, and each bullet represents the situation of the conversation context.
 
 * __Bullet1__ 
     There is a conversation when the client wants to retrieve some data. The Bot will reply with a choice. This Bot can help the user retrieving either time-series data or snapshot price. So it has to ask a user to confirm the usage. 
@@ -428,7 +425,7 @@ There are four orange bullets, each bullet represent situation of the conversati
     User input answer. The Bot may repeat the question if the context of the answer is not in the context_set.
 
 * __Bullet3__ 
-    The context of the answer is in context_set. Therefore, Bot asks a user to provide a RIC name. The user provides an answer, and Bot will assume that the input is RIC name. It will create context_action, which is an internal command for the app. App also checks if the JSON object contains context_link, it will search for a tag which matches with the value of context_link. Then it has to send the response back to the user.
+    The context of the answer is in context_set. Therefore, Bot asks a user to provide a RIC name. The user provides an answer, and Bot will assume that the input is RIC name. It will create context_action, which is an internal command for the app. App also checks if the JSON object contains context_link, it will search for a tag that matches the value of context_link. Then it has to send the response back to the user.
 
 * __Bullet4__ 
     The app will check the context_action and call an internal function to retrieving the data or do other actions. I don't' want to make it more complicated; therefore, our example call function from Eikon Data API to get price or time-series data accordingly.
@@ -453,21 +450,21 @@ Note that currently, the Chatbot app was designed to works with Bilateral Chatro
 4) Bot join Chatroom using the Chatroom ID.
 5) Bot invite a user to join the Chatroom using the recipient email.
 6) Bot sends a welcome message to Chatroom.
-7) The bot connects to the Websocket server to monitoring messages from Chatroom and responds when receiving a new message.
+7) The Bot connects to the Websocket server to monitoring messages from Chatroom and responds when receiving a new message.
 
 There are two files you need to run.
 
-* traindata.py is a Python script to train ChatBot, generate Model and save the data and model to files. The project already contains pre-built data(ahsbot-data.pkl) and model(ahsbot-model.pkl) so you don't need to run it again unless you want to modify or add sentence and data to ahsbot_intents.json. 
+* traindata.py is a Python script to train ChatBot, generate the model, and save the data and model to files. The project already contains pre-built data(ahsbot-data.pkl) and model(ahsbot-model.pkl), so you don't need to rerun it unless you want to modify or add sentence and data to ahsbot_intents.json. 
 
   You can run the script by executing the following command
   ```command
   python traindata.py
   ```
-  It will run Tensorflow to create model and save to file like following output.
+  It will run Tensorflow to create the model and save it to file like the following output.
 
   ![MessengerChat](https://raw.githubusercontent.com/Refinitiv-API-Samples/Example.MessengerBotAPI.Python.InteractiveMessengerBotML/master/images/buildmodel.gif)
 
-* ahsbot_demo_ws.py is a main ChatBot app. 
+* ahsbot_demo_ws.py is the main ChatBot app. 
 Modify the following section in the Python codes. Change it to your account.
 
 ```python
@@ -479,42 +476,40 @@ bot_password = '<Your BOT Password>'
 app_key = '<Your Bot AppKey>'
 
 # Input your Eikon Data API AppKey
-eikon_data_api_app_key = "Eikon Data API AppKey"
+eikon_data_api_app_key = "Eikon Data API AppKey."
 # Input your Messenger Application account email
 recipient_email = ['<recipient email address>']
 
 # Input BILATERAL Chat Room name
-bilateral_chatroom_name = "<name of BILATERAL chatroom you want to create>"
+bilateral_chatroom_name = "<name of BILATERAL chatroom you want to create>."
 ```
-You can set the following parameter to __False__ in case that you don't have Refinitiv Workspace or  Eikon Desktop to test. The Bot will generate Dummy data when you retreive the price.
+You can set the following parameter to __False__ in case that you don't have Refinitiv Workspace or  Eikon Desktop to test. The Bot will generate Dummy data when you retrieve the price.
 ```python
 use_data_from_eikon =True
 ```
-Please make sure that you have data and model files(ahs-data.pkl and adhsbot-model.pkl) including ahsbot-intense.json in the same folder before executing the following command.
+Please make sure that you have data and model files(ahs-data.pkl and adhsbot-model.pkl), including ahsbot-intense.json in the same folder before executing the following command.
   ```command
   python chatbot_demo_ws.py
   ```
 You will see the following output when the Message BOT API connected to the server.
 
-
-The Eikon Messenger will pop up welcome message we just sent to the Chatroom like the following screen shot.
+The Eikon Messenger will pop up the welcome message we just sent to the Chatroom like the following screenshot.
 
 ![welcomechatbot](https://raw.githubusercontent.com/Refinitiv-API-Samples/Example.MessengerBotAPI.Python.InteractiveMessengerBotML/master/images/welcomechatbot.JPG)
 
-You can type 'bye' to left the Chatroom. The app will remove your account from participant list and shows message like the following screen shot.
+You can type 'bye' to left the Chatroom. The app will remove your account from the participant list and shows a message like the following screenshot.
 
 ![quitchatbot](https://raw.githubusercontent.com/Refinitiv-API-Samples/Example.MessengerBotAPI.Python.InteractiveMessengerBotML/master/images/quitbot.JPG)
 
-Below is sample output when testing the Messenger app with the ChatBot.
+Below is the sample output when testing the Messenger app with the ChatBot.
 
 ![MessengerChat](https://github.com/Refinitiv-API-Samples/Example.MessengerBotAPI.Python.InteractiveMessengerBotML/blob/master/images/runmessenger.gif)
 
 # Conclusion
 
-In this article, we have explained steps to build your Interactive ChatBot with Python Machine Learning and Messenger Bot API. There is more room to play, you may add a queue to queuing and processing the message and you can integrate the core logics of ChatBot to web framework such as [Flask](https://www.fullstackpython.com/flask.html) to create Bot server. Moreover, you can create your Chatbot using other Python libraries such as ChatterBot, or you can apply a technologies/frameworks like [Microsoft Bot Framework](https://dev.botframework.com/),[IBM Watson](https://www.ibm.com/watson) or using [Google Dialog Flow](https://dialogflow.com/) to implement the Bot. Then you can integrate your Bot system with Refinitiv Message Bot API using any programming language which provides HTTP Client library and Websocket Client library. You can incorporate the functionality of the other Refinitiv's APIs to retrieve particular information as well.
+In this article, we have explained steps to build your Interactive ChatBot with Python Machine Learning and Messenger Bot API. There is more room to play, you may add a queue to queuing and processing the message, and you can integrate the core logics of ChatBot to web framework such as [Flask](https://www.fullstackpython.com/flask.html) to create Bot server. Moreover, you can create your Chatbot using other Python libraries such as ChatterBot, or you can apply a technologies/frameworks like [Microsoft Bot Framework](https://dev.botframework.com/),[ML.NET](https://dotnet.microsoft.com/apps/machinelearning-ai/ml-dotnet),[IBM Watson](https://www.ibm.com/watson) or using [Google Dialog Flow](https://dialogflow.com/) to implement the Bot. Then you can integrate your Bot system with Refinitiv Message Bot API using any programming language which provides HTTP Client library and Websocket Client library. You can incorporate the functionality of the other Refinitiv's APIs to retrieve particular information as well.
 
-The future of Chatbots is very bright with the advancement in the Artificial Intelligence sector. Future Chatbot will not only be customer support; it will be an advanced assistant for both the business and the consumer. AI Chatbot will take over repetitive and tedious tasks on behalf of a human. The Chatbot that we just built is quite simple, but this example should help you think through the design and challenge of creating your own Bot.
-
+The future of Chatbots is very bright with the advancement in the Artificial Intelligence sector. Future Chatbot will not only be customer support; it will be an advanced assistant for both the business and the consumer. AI Chatbot will take over repetitive and tedious tasks on behalf of a human. The Chatbot that we just built is quite simple, but this example should help you think through the design and challenge of creating your Bot.
 
 # References
 
@@ -527,3 +522,4 @@ The future of Chatbots is very bright with the advancement in the Artificial Int
 * [Build it Yourself — Chatbot API with Keras/TensorFlow Model](https://towardsdatascience.com/build-it-yourself-chatbot-api-with-keras-tensorflow-model-f6d75ce957a5) 
 * [Eikon Data API](https://developers.refinitiv.com/eikon-apis/eikon-data-api)
 * [Natural Language Toolkits-NLTK](https://www.nltk.org/)
+
