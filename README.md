@@ -18,7 +18,7 @@ __Step1: Building the Deep Learning Model__
 
 This step, we need to translate user input to recognize the intent. It can be solved with Machine Learning, and we are using Keras with TensorFlow backend in this project. We need to build a model using Keras and save it to local storage to reuse it in the main implementation of the ChatBot.
 
-__Step 2: Integrate Model with Message Bot API__
+__Step 2: Integrate Model with Messenger Bot API__
 
 We need to integrate implementation from steps 1 and 2 with Messenger Bot API to send and receive a message from a user's input. To make it short, we will modify the implementation of the Python example chatbot_demo_ws.py, which provided in [Messenger Bot example](https://github.com/Refinitiv-API-Samples/Example.MessengerChatBot.Python) to integrate our ChatBot with original codes.
 
@@ -256,7 +256,7 @@ pickle.dump( {'words':words, 'classes':classes, 'train_x':train_x, 'train_y':tra
 ```
 You can find a full python code to train the Bot from __traindata.py__ file. You need to run it to re-train the Bot when you add data to the intents file.
 
-## Step 2: Integrate Machine Learning Model with Message Bot API
+## Step 2: Integrate Machine Learning Model with Messenger Bot API
 
 We need to create a function to classify user input based on calculated probability. We will define a threshold to filter the intent in the result. Multiple intents can be returned. 
 
@@ -491,7 +491,7 @@ Please make sure that you have data and model files(ahs-data.pkl and adhsbot-mod
   ```command
   python chatbot_demo_ws.py
   ```
-You will see the following output when the Message BOT API connected to the server.
+You will see the following output when the Messenger BOT API connected to the server.
 
 The Eikon Messenger will pop up the welcome message we just sent to the Chatroom like the following screenshot.
 
@@ -507,7 +507,7 @@ Below is the sample output when testing the Messenger app with the ChatBot.
 
 # Conclusion
 
-In this article, we have explained steps to build your Interactive ChatBot with Python Machine Learning and Messenger Bot API. There is more room to play, you may add a queue to queuing and processing the message, and you can integrate the core logics of ChatBot to web framework such as [Flask](https://www.fullstackpython.com/flask.html) to create Bot server. Moreover, you can create your Chatbot using other Python libraries such as ChatterBot, or you can apply a technologies/frameworks like [Microsoft Bot Framework](https://dev.botframework.com/),[ML.NET](https://dotnet.microsoft.com/apps/machinelearning-ai/ml-dotnet),[IBM Watson](https://www.ibm.com/watson) or using [Google Dialog Flow](https://dialogflow.com/) to implement the Bot. Then you can integrate your Bot system with Refinitiv Message Bot API using any programming language which provides HTTP Client library and Websocket Client library. You can incorporate the functionality of the other Refinitiv's APIs to retrieve particular information as well.
+In this article, we have explained steps to build your Interactive ChatBot with Python Machine Learning and Messenger Bot API. There is more room to play, you may add a queue to queuing and processing the message, and you can integrate the core logics of ChatBot to web framework such as [Flask](https://www.fullstackpython.com/flask.html) to create Bot server. Moreover, you can create your Chatbot using other Python libraries such as ChatterBot, or you can apply a technologies/frameworks like [Microsoft Bot Framework](https://dev.botframework.com/),[ML.NET](https://dotnet.microsoft.com/apps/machinelearning-ai/ml-dotnet),[IBM Watson](https://www.ibm.com/watson) or using [Google Dialog Flow](https://dialogflow.com/) to implement the Bot. Then you can integrate your Bot system with Refinitiv Messenger Bot API using any programming language which provides HTTP Client library and Websocket Client library. You can incorporate the functionality of the other Refinitiv's APIs to retrieve particular information as well.
 
 The future of Chatbots is very bright with the advancement in the Artificial Intelligence sector. Future Chatbot will not only be customer support; it will be an advanced assistant for both the business and the consumer. AI Chatbot will take over repetitive and tedious tasks on behalf of a human. The Chatbot that we just built is quite simple, but this example should help you think through the design and challenge of creating your Bot.
 
