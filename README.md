@@ -98,7 +98,7 @@ We need to create an intents file, which is a plain JSON file.No need to have a 
         {
             "tag": "trepapidownload",
             "patterns": ["How to downoad RFA API?","How to downoad RFA C++ API?","How to downoad RFA Java API?","How to download Open DACS API","Give me a list of TREP API","download RFA C++","download RFA Java","download RFA.NET","List REP API"],
-            "responses": ["Navigate to API of your choice from developer portal https://developers.refinitiv.com/thomson-reuters-enterprise-platform/apis-in-this-family, there is download section in each API.Note that only RDC named user can access the page."],
+            "responses": ["Navigate to API of your choice from developer portal https://developers.refinitiv.com/en/api-catalog, there is download section in each API.Note that only RDC named user can access the page."],
             "context": [""]
         },
         ///...
@@ -328,7 +328,7 @@ Bot: Currently, Elektron SDK(ESDK) does not support .NET. Only C++ and Java vers
 
 ```
 User: Where can I download RFA C++?
-Bot: Navigate to API of your choice from developer portal https://developers.refinitiv.com/thomson-reuters-enterprise-platform/apis-in-this-family, there is a download section in each API. Note that only RDC named user can access the page.
+Bot: Navigate to API of your choice from developer portal https://developers.refinitiv.com/en/api-catalog, there is a download section in each API. Note that only RDC named user can access the page.
 
 ```
 
