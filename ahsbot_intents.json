@@ -86,9 +86,9 @@
                 "Help"
             ],
             "responses": [
-                "I can help you retreive some data like stock price or timeseries.I can also provide some API details such as TREP API,Eikon Data API and provide link to download API",
-                "I have some knowledge about TREP API (RFA,EMA, etc) and Eikon Data API. Anyway, I can help you get price or timeseries from Eikon Desktop",
-                "I can help for TREP/Eikon Data API download, provide API compatibility Matrix. I can also help you get price or timeseries data from Eikon Desktop"
+                "I can help you retrieve some data like stock price or timeseries.I can also provide some API details such as Refinitiv Real-Time APIs,Eikon Data API and provide link to download API",
+                "I have some knowledge about Refinitiv Real-Time APIs (RFA,EMA, etc) and Eikon Data API. Anyway, I can help you get price or timeseries from Eikon Desktop",
+                "I can help for Refinitiv Real-Time/Eikon Data API download, provide API compatibility Matrix. I can also help you get price or timeseries data from Eikon Desktop"
             ],
             "context": [
                 ""
@@ -103,8 +103,8 @@
                 "Do you have API for Eikon Messenger"
             ],
             "responses": [
-                "We provide REST and WebSocket API to access Eikon Messenger. Find more details about Messenger Bot API from  https://developers.refinitiv.com/messenger-api/messenger-bot-api",
-                "Please check Messenger BOT API https://developers.refinitiv.com/messenger-api/messenger-bot-api"
+                "We provide REST and WebSocket API to access Eikon Messenger. Find more details about Messenger Bot API from  https://developers.refinitiv.com/en/api-catalog/messenger-api/messenger-bot-api",
+                "Please check Messenger BOT API https://developers.refinitiv.com/en/api-catalog/messenger-api/messenger-bot-api"
             ],
             "context": [
                 ""
@@ -137,73 +137,50 @@
                 "What API is offered for Eikon Desktop"
             ],
             "responses": [
-                "I would suggest you check Eikon Data API from https://developers.refinitiv.com/eikon-apis/eikon-data-api/quick-start.",
-                "You can find the list of Eikon APIs from https://developers.refinitiv.com/eikon-apis/apis-in-this-family. Anyway Eikon Data API can be used with python."
+                "I would suggest you check Eikon Data API from https://developers.refinitiv.com/en/api-catalog/eikon/eikon-data-api/quick-start.",
+                "You can find the list of Eikon APIs from https://developers.refinitiv.com/en/api-catalog/eikon/eikon-data-api. Anyway Eikon Data API can be used with python."
             ],
             "context": [
                 ""
             ]
         },
         {
-            "tag": "trepapidownload",
+            "tag": "rtsdkapi",
             "patterns": [
-                "How to downoad RFA API?",
-                "How to downoad RFA C++ API?",
-                "How to downoad RFA Java API?",
-                "How to download Open DACS API",
-                "opendacs api",
-                "OpenDacs",
-                "Open DACS",
-                "Give me a list of TREP API",
-                "download RFA C++",
-                "download RFA Java",
-                "download RFA.NET",
-                "List all  TREP API"
-            ],
-            "responses": [
-                "Navigate to API of your choice from developer portal https://developers.refinitiv.com/thomson-reuters-enterprise-platform/apis-in-this-family, there is download section in each API.Note that only RDC named user can access the page."
-            ],
-            "context": [
-                ""
-            ]
-        },
-        {
-            "tag": "trepesdkapi",
-            "patterns": [
-                "Which API can use to retreive data from TREP",
-                "Which API can use to retreive data from ADS",
-                "Which API can use to retreive data from Elektron Real Time",
-                "Which API can publish data to TREP",
+                "Which API can use to retrieve data from RTDS",
+                "Which API can use to retrieve data from ADS",
+                "Which API can use to retrieve data from Refinitiv Real Time",
+                "Which API can publish data to RTDS",
                 "Which API can use to publish data to ADH"
             ],
             "responses": [
-                "You can use Elektron SDK or TREP APIs such as RFA to retrieve, publish and contribute data. See more details from https://developers.refinitiv.com/thomson-reuters-enterprise-platform/apis-in-this-family, there is download section in each API.Note that only RDC named user can access TREP API download page.",
-                "EMA(C++/Java) and RFA(C++/.NET/Java) can consuming and publishing data to TREP. You can use ESDK to contribute data to TRCC. Findmore details from https://developers.refinitiv.com/elektron/apis-in-this-family and https://developers.refinitiv.com/thomson-reuters-enterprise-platform/apis-in-this-family"
+                "You can use Refinitiv Real-Time SDK (RTSDK) such as EMA API to retrieve, publish and contribute data. See more details from https://developers.refinitiv.com/en/use-cases-catalog/refinitiv-real-time, there is download section in each API.",
+                "EMA(C++/Java) can consuming and publishing data to Refinitiv Real-Time. You can use RTSDK to contribute data to RCC. Find more details from https://developers.refinitiv.com/en/use-cases-catalog/refinitiv-real-time"
             ],
             "context": [
                 ""
             ]
         },
         {
-            "tag": "esdkdownload",
+            "tag": "rtsdkdownload",
             "patterns": [
                 "download EMA",
                 "download EMA C++",
                 "download EMA Java",
-                "download ESDK C++",
-                "download ESDK Java",
-                "How to downoad Elektron SDK?",
-                "How to downoad EMA C++?",
+                "download RTSDK C++",
+                "download RTSDK Java",
+                "How to download Real-Time SDK?",
+                "How to download EMA C++?",
                 "Where can I download ETA?",
-                "How to downoad EMA JAVA?",
+                "How to download EMA JAVA?",
                 "How to download Open DACS API",
-                "Give me a list of ESDK APIs",
-                "Any github for Elektron SDK",
-                "github for ESDK"
+                "Give me a list of RTSDK APIs",
+                "Any github for Real-Time SDK",
+                "github for RTSDK"
             ],
             "responses": [
-                "You can download ESDK from https://developers.refinitiv.com/elektron/apis-in-this-family. Or go to github https://github.com/Refinitiv/Elektron-SDK",
-                "If you use GitHub you can download ESDK from github https://github.com/Refinitiv/Elektron-SDK. Find more tutorial from https://developers.refinitiv.com/elektron/apis-in-this-family"
+                "You can download RTSDK from  https://developers.refinitiv.com/en/use-cases-catalog/refinitiv-real-time. Or go to github https://github.com/Refinitiv/Real-Time-SDK",
+                "If you use GitHub you can download RTSDK from github https://github.com/Refinitiv/Real-Time-SDK. Find more tutorial from  https://github.com/Refinitiv/Real-Time-SDK"
             ],
             "context": [
                 ""
@@ -218,65 +195,65 @@
         {
             "tag":"eta_over_ema_2",
             "patterns":["difference between API products: RFA vs ETA vs EMA vs UPA","Can you compare EMA and ETA","Can you compare RFA and EMA?"],
-            "responses":["As for differences, in summary:\nRFA is our legacy feature complete API\nUPA has now been re-branded as Elektron Transport API (ETA)\nETA is our lowest level highest performance strategic API\nElektron Message API is a higher level strategic API which is easier to use whilst still offering a high level of performance.\nFor most developers EMA is the recommend API for any new development or rewrite of existing applications. The performance should be more than adequate for the majority of use case scenarios.It is much easier to learn, less code is required to implement functionality and therefore also easier to maintain long term.\nFor those requiring the highest level of performance e.g. algorithmic trading - they should consider ETA.\nFor a high level overview of EMA please refer them to article Introduction to Elektron Message API(https://developers.refinitiv.com/article/introduction-elektron-message-api) as well as the Elektron SDK page https://developers.thomsonreuters.com/elektron."],
+            "responses":["As for differences, in summary:\nRFA is our legacy feature complete API\nUPA has now been re-branded as Enterprise Transport API (ETA)\nETA is our lowest level highest performance strategic API\nEnterprise Message API is a higher level strategic API which is easier to use whilst still offering a high level of performance.\nFor most developers EMA is the recommend API for any new development or rewrite of existing applications. The performance should be more than adequate for the majority of use case scenarios.It is much easier to learn, less code is required to implement functionality and therefore also easier to maintain long term.\nFor those requiring the highest level of performance e.g. algorithmic trading - they should consider ETA.\nFor a high level overview of EMA please refer them to article Introduction to Enterprise Message API(https://developers.refinitiv.com/en/article-catalog/article/introduction-elektron-message-api) as well as the Refinitiv Real-Time SDK page https://developers.refinitiv.com/en/use-cases-catalog/refinitiv-real-time."],
             "context":[""]
         },
         {
-            "tag": "esdkinfo",
+            "tag": "rtsdkinfo",
             "patterns": [
                 "EMA",
                 "ETA",
-                "ESDK",
+                "RTSDK",
                 "UPA",
                 "EMA C++",
                 "ETA C++",
-                "ESDK C++",
+                "RTSDK C++",
                 "EMA Java",
                 "ETA Java",
                 "UPA C++",
                 "UPA Java",
-                "Elektron SDK"
+                "Real-Time SDK"
             ],
             "responses": [
-                "You can find details regarding Elektron SDK from https://developers.refinitiv.com/elektron/apis-in-this-family",
-                "Find more details from https://developers.refinitiv.com/elektron/apis-in-this-family"
+                "You can find details regarding Refinitiv Real-Time SDK from https://developers.refinitiv.com/en/use-cases-catalog/refinitiv-real-time",
+                "Find more details from https://developers.refinitiv.com/en/use-cases-catalog/refinitiv-real-time"
             ],
             "context": [
                 ""
             ]
         },
         {
-            "tag": "esdkdcompat",
+            "tag": "rtsdkdcompat",
             "patterns": [
-                "Can I use ESDK on Linux?",
+                "Can I use RTSDK on Linux?",
                 "Can I use RFA on RHEL7",
                 "Can I use EMA on RHEL7",
                 "Can I use EMA on Linux?",
-                "Can I use Elektron SDK on Linux",
-                "Can I use ESDK on Windows",
-                "ESDK support OS",
+                "Can I use Real-Time SDK on Linux",
+                "Can I use RTSDK on Windows",
+                "RTSDK support OS",
                 "Can I use EMA with gcc 4.x",
                 "Do you support Ubuntu?"
             ],
             "responses": [
-                "You can use TREP API (RFA,OpenDACS,etc) and Elektron SDK(EMA/ETA) on Windows and Linux. Anyway please find supported OS and Compiler from API Compatibility Matrix https://developers.refinitiv.com/elektron/elektron-sdk-cc/docs?content=5403&type=documentation_item"
+                "You can use Refinitiv Real-Time APIs (RFA, OpenDACS, etc) and Real-Time SDK(EMA/ETA) on Windows and Linux. Anyway please find supported OS and Compiler from API Compatibility Matrix https://developers.refinitiv.com/en/api-catalog/refinitiv-real-time-opnsrc/rt-sdk-cc/documentation#api-compatibility-matrix"
             ],
             "context": [
                 ""
             ]
         },
         {
-            "tag": "esdkdotnet",
+            "tag": "rtsdkdotnet",
             "patterns": [
-                "Where can I download ESDK for .NET?",
+                "Where can I download RTSDK for .NET?",
                 "Any EMA for .NET?",
                 "EMA support .NET",
                 "Plan to support EMA .NET",
-                "Any C# version of ESDK"
+                "Any C# version of RTSDK"
             ],
             "responses": [
-                "Currently Elektron SDK(ESDK) does not support .NET. Only C++ and Java version available on https://github.com/Refinitiv/Elektron-SDK or https://developers.refinitiv.com/elektron/apis-in-this-family",
-                "ESDK does not support .NET. The Elektron Websocket API seems to be the only one which can support .NET as it is language agnostic. There are code samples in most programming language, including .NET and Python."
+                "Currently Refinitiv Real-Time SDK (RTSDK) does not support .NET. Only C++ and Java version available on https://github.com/Refinitiv/Real-Time-SDK or https://developers.refinitiv.com/en/use-cases-catalog/refinitiv-real-time",
+                "RTSDK does not support .NET. The Websocket API seems to be the only one which can support .NET as it is language agnostic. There are code samples in most programming language, including .NET and Python."
             ],
             "context": [
                 ""
@@ -313,8 +290,8 @@
                 "API to request Historical data"
             ],
             "responses": [
-                "Please see Tick Historical REST API and DSS API.Find details from https://developers.refinitiv.com/thomson-reuters-tick-history-trth/thomson-reuters-tick-history-trth-rest-api and https://developers.refinitiv.com/datascope-select-dss",
-                "I would suggest Tick Hostirical REST API https://developers.refinitiv.com/thomson-reuters-tick-history-trth/thomson-reuters-tick-history-trth-rest-api. See also DSS REST API https://developers.refinitiv.com/datascope-select-dss"
+                "Please see Tick Historical REST API and DSS API.Find details from https://developers.refinitiv.com/en/api-catalog/refinitiv-tick-history/refinitiv-tick-history-rth-rest-api and https://developers.refinitiv.com/en/api-catalog/datascope-select/datascope-select-rest-api",
+                "I would suggest Tick Historical REST API https://developers.refinitiv.com/en/api-catalog/refinitiv-tick-history/refinitiv-tick-history-rth-rest-api. See also DSS REST API https://developers.refinitiv.com/en/api-catalog/datascope-select/datascope-select-rest-api"
             ],
             "context": [""]
         },
