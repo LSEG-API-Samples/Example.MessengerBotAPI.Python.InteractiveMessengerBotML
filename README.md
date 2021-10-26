@@ -1,16 +1,17 @@
 # How to build Refinitiv Messenger Interactive ChatBot with Python Machine Learning and Messenger Bot API 
 
+**Update**: October 2021
 
 Nowadays, Chatbots are extremely helpful for business organizations and also customers. The majority of people prefer to talk directly from a chatbox instead of calling a Helpdesks. Some of the more advanced chatbots are powered by AI, helping them to solve problems, send personalized messages, and improve their interactions over time.  It is a quick way to get their problems solved, so chatbots have a bright future in organizations. You can build a chatbot on top of the existing platforms and API. It does not look hard to study the background concepts and try to make it yourself. 
 
-Refinitiv also provides a new [Messenger Bot API](https://developers.refinitiv.com/messenger-api/messenger-bot-api), which provides a set of available API calls to build automated workflows or
+Refinitiv also provides a new [Messenger Bot API](https://developers.refinitiv.com/en/api-catalog/messenger-api/messenger-bot-api), which provides a set of available API calls to build automated workflows or
 bots for Refinitiv messenger or Eikon Messenger. The Bot API allows your applications to connect with and pass information
 into Refinitiv's Messenger service programmatically and also build interactive chatbots.
 The Bot API includes a REST API and also provides a WebSocket to listen to events and to allow a bot to respond. All request and response bodies are encoded in JSON.
 
-Today we are going to build our interactive Chatbot using Python with the [Messenger Bot API](https://developers.refinitiv.com/messenger-api/messenger-bot-api). We will implement a chatbot from scratch that will be able to understand what the user is talking about and give an appropriate response like below sample conversation.
+Today we are going to build our interactive Chatbot using Python with the [Messenger Bot API](hhttps://developers.refinitiv.com/en/api-catalog/messenger-api/messenger-bot-api). We will implement a chatbot from scratch that will be able to understand what the user is talking about and give an appropriate response like below sample conversation.
 
-![Chat Conversation Sample](https://raw.githubusercontent.com/Refinitiv-API-Samples/Example.MessengerBotAPI.Python.InteractiveMessengerBotML/master/images/BotConversastion.JPG)
+![Chat Conversation Sample](images/BotConversastion.JPG)
 
 Interaction Chatbot implementation main challenges are:
 
@@ -91,21 +92,21 @@ We need to create an intents file, which is a plain JSON file.No need to have a 
         {
             "tag": "options",
             "patterns": ["How you could help me?","What you can do?","What help you provide?","What support is offered","Help"],
-            "responses": ["I can help you get some data like stock price or timeseries.I can also provide some API details such as TREP API ad some Eikon Data API and provide link to download API","Offering mainly support for TREP and Elektron SDK API. Anyway I know a little bit about Eikon Data API and can help you check some price"
+            "responses": ["I can help you retrieve some data like stock price or timeseries.I can also provide some API details such as Refinitiv Real-Time APIs,Eikon Data API and provide link to download API","I have some knowledge about Refinitiv Real-Time APIs (RFA,EMA, etc) and Eikon Data API. Anyway, I can help you get price or timeseries from Eikon Desktop"
             ],
             "context": [""]
         },
         {
-            "tag": "trepapidownload",
-            "patterns": ["How to downoad RFA API?","How to downoad RFA C++ API?","How to downoad RFA Java API?","How to download Open DACS API","Give me a list of TREP API","download RFA C++","download RFA Java","download RFA.NET","List REP API"],
-            "responses": ["Navigate to API of your choice from developer portal https://developers.refinitiv.com/thomson-reuters-enterprise-platform/apis-in-this-family, there is download section in each API.Note that only RDC named user can access the page."],
+            "tag": "rtsdkdownload",
+            "patterns": ["download EMA","download EMA C++","download EMA Java","Where can I download ETA?"///...],
+            "responses": ["You can download RTSDK from  https://developers.refinitiv.com/en/use-cases-catalog/refinitiv-real-time. Or go to github https://github.com/Refinitiv/Real-Time-SDK"."If you use GitHub you can download RTSDK from github https://github.com/Refinitiv/Real-Time-SDK. Find more tutorial from  https://github.com/Refinitiv/Real-Time-SDK"],
             "context": [""]
         },
         ///...
         {
             "tag": "get_data",
-            "patterns": ["I want to retrieve data","get data","get stock data","Can you retreive data?","Can you help me get data?","Any way to get data."],
-            "responses": ["I can retreive some of the timeseries data (limit to 30 days) or snapshot of stock price.\nDo you need timeseries or price?","Do you want to retreive timeseries (limit to 30 days) or price?"],
+            "patterns": ["I want to retrieve data","get data","get stock data","Can you retrieve data?","Can you help me get data?","Any way to get data."],
+            "responses": ["I can retrieve some of the timeseries data (limit to 30 days) or snapshot of stock price.\nDo you need timeseries or price?","Do you want to retrieve timeseries (limit to 30 days) or price?"],
             "context": ["get_data"],
             "context_set":["gettimeseries","getsnapshot"]
         },
@@ -177,8 +178,8 @@ And this is the output of vocabulary creation. There are 16 intents or classes a
 
 ```
 119 documents
-16 classes ['changeconfidencelevel', 'clear_context', 'eikondataapipython', 'esdkdcompat', 'esdkdotnet', 'esdkdownload', 'esdkinfo', 'get_data', 'getsnapshot', 'gettimeseries', 'goodbye', 'greeting', 'options', 'thanks', 'trepapidownload', 'trepesdkapi']
-107 unique stemmed words ['#', "'s", ',', '.', '.net', '4.x', 'a', 'ad', 'adh', 'adjust', 'al', 'any', 'anyon', 'ap', 'ar', 'awesom', 'be', 'bye', 'c', 'c++', 'can', 'chang', 'chat', 'clear', 'confid', 'context', 'could', 'dac', 'dat', 'day', 'desktop', 'do', 'downalod', 'download', 'downoad', 'eikon', 'elektron', 'em', 'esdk', 'et', 'for', 'from', 'gcc', 'get', 'github', 'giv', 'good', 'goodby', 'hello', 'help', 'hi', 'hist', 'how', 'i', 'is', 'jav', 'lat', 'latest', 'level', 'linux', 'list', 'me', 'next', 'nic', 'of', 'off', 'ok', 'on', 'op', 'os', 'plan', 'pric', 'provid', 'publ', 'python', 'real', 'reset', 'retreiv', 'retriev', 'rfa', 'rfa.net', 'rhel7', 'sdk', 'see', 'snapshot', 'stock', 'support', 'thank', 'that', 'ther', 'til', 'tim', 'timesery', 'to', 'trep', 'ubuntu', 'up', 'us', 'vert', 'want', 'way', 'what', 'wher', 'which', 'window', 'with', 'you']
+16 classes ['changeconfidencelevel', 'clear_context', 'eikondataapipython', 'rtsdkdcompat', 'rtsdkdotnet', 'rtsdkdownload', 'rtsdkinfo', 'get_data', 'getsnapshot', 'gettimeseries', 'goodbye', 'greeting', 'options', 'thanks', 'rtsdkapi']
+107 unique stemmed words ['#', "'s", ',', '.', '.net', '4.x', 'a', 'ad', 'adh', 'adjust', 'al', 'any', 'anyon', 'ap', 'ar', 'awesom', 'be', 'bye', 'c', 'c++', 'can', 'chang', 'chat', 'clear', 'confid', 'context', 'could', 'dac', 'dat', 'day', 'desktop', 'do', 'downalod', 'download', 'downoad', 'eikon', 'real-time', 'em', 'esdk', 'et', 'for', 'from', 'gcc', 'get', 'github', 'giv', 'good', 'goodby', 'hello', 'help', 'hi', 'hist', 'how', 'i', 'is', 'jav', 'lat', 'latest', 'level', 'linux', 'list', 'me', 'next', 'nic', 'of', 'off', 'ok', 'on', 'op', 'os', 'plan', 'pric', 'provid', 'publ', 'python', 'real', 'reset', 'retreiv', 'retriev', 'rfa', 'rfa.net', 'rhel7', 'sdk', 'see', 'snapshot', 'stock', 'support', 'thank', 'that', 'ther', 'til', 'tim', 'timesery', 'to', 'rtds', 'ubuntu', 'up', 'us', 'vert', 'want', 'way', 'what', 'wher', 'which', 'window', 'with', 'you']
 ```
 
 Because machine learning is all about math, all data needs to be converted to numbers or numeric arrays. We need to convert words into bags of words with arrays containing 0 or 1. Array length will be equal to vocabulary size and 1 will be set when a word from the current pattern is located in the given position:
@@ -314,7 +315,7 @@ message='Can I use EMA with .NET?'
 print("User:",message)
 print("Bot:",botResponse(message,userId))
 
-message='Where can I download RFA C++?'
+message='I want API to download historical data'
 print("User:",message)
 print("Bot:",botResponse(message,userId))
 print(context)
@@ -323,18 +324,18 @@ It will return the sentence from the ahsbot-intents.json file which matches with
 
 ```
 User: Can I use EMA with .NET?
-Bot: Currently, Elektron SDK(ESDK) does not support .NET. Only C++ and Java version available on https://github.com/Refinitiv/Elektron-SDK or https://developers.refinitiv.com/elektron/apis-in-this-family
+Bot: Currently Refinitiv Real-Time SDK (RTSDK) does not support .NET. Only C++ and Java version available on https://github.com/Refinitiv/Real-Time-SDK or https://developers.refinitiv.com/en/use-cases-catalog/refinitiv-real-time
 ```
 
 ```
-User: Where can I download RFA C++?
-Bot: Navigate to API of your choice from developer portal https://developers.refinitiv.com/thomson-reuters-enterprise-platform/apis-in-this-family, there is a download section in each API. Note that only RDC named user can access the page.
+User: I want API to download historical data
+Bot: Please see Tick Historical REST API and DSS API.Find details from https://developers.refinitiv.com/en/api-catalog/refinitiv-tick-history/refinitiv-tick-history-rth-rest-api and https://developers.refinitiv.com/en/api-catalog/datascope-select/datascope-select-rest-api
 
 ```
 
 Next steps, it's time to integrate the botResponse method to the Messenger BOT API example app. 
 
-If you would like to have an interactive Bot, then you will need to establish a WebSocket connection. The WebSockets are used to provide a persistent connection between two endpoints. They allow for access to real-time communication and will enable a bot to listen for events to create a more interactive bot. We will not describe the steps to establish a WebSocket connection in this article. Please refer to [Messenger Bot API document](https://developers.refinitiv.com/messenger-api/messenger-bot-api/docs?content=81683&type=documentation_item) section WebSocket Connection for more details about the WebSocket implementation and limitation.
+If you would like to have an interactive Bot, then you will need to establish a WebSocket connection. The WebSockets are used to provide a persistent connection between two endpoints. They allow for access to real-time communication and will enable a bot to listen for events to create a more interactive bot. We will not describe the steps to establish a WebSocket connection in this article. Please refer to [Messenger Bot API document](https://developers.refinitiv.com/en/api-catalog/messenger-api/messenger-bot-api/documentation) section WebSocket Connection for more details about the WebSocket implementation and limitation.
 
 Instead of creating a new application from scratch, we will create a new file ahsbot_demo_ws.py and copy original codes from chatbot_demo_ws.py, which is an example implemented for Messenger Bot WebSocket connection. Then we will modify the codes from ahsbot_demo_ws.py to use our Chatbot when it sends a response back to the user. It will call our botResponse function instead. You need to modifying function process_message. It used to process a message from Websocket Client 
 __on_message__ callback.
@@ -366,7 +367,7 @@ def process_message(message_json):
 ```
 Below is a test result when running modified codes with BILATERAL chatroom.
 
-![Chat Conversation Sample](https://raw.githubusercontent.com/Refinitiv-API-Samples/Example.MessengerBotAPI.Python.InteractiveMessengerBotML/master/images/BotConversastion2.JPG)
+![Chat Conversation Sample](/images/BotConversastion2.JPG)
 
 We are now successfully integrated our model to the interactive Messenger BOT API.
 
@@ -378,7 +379,7 @@ Check the following sample JSON data, and you should see some object has context
 ```json
        {
             "tag": "get_data",
-            "patterns": ["I want to retrieve data","get data","get stock data","Can you retreive data?","Can you help me get data?","Any way to get data."],
+            "patterns": ["I want to retrieve data","get data","get stock data","Can you retrieve data?","Can you help me get data?","Any way to get data."],
             "responses": ["I can retreive some of the timeseries data (limit to 30 days) or snapshot of stock price.\nDo you need timeseries or price?",
                 "Do you want to retreive timeseries (limit to 30 days) or price?"],
             "context": ["get_data"],
@@ -414,7 +415,7 @@ The context_set is a set of context which could be an answer to the question. Th
 
 The below diagram is a sample scenario based on the JSON data. The white box in user input and blue box is for a BOT response.
 
-![conversation_diagram](https://raw.githubusercontent.com/Refinitiv-API-Samples/Example.MessengerBotAPI.Python.InteractiveMessengerBotML/master/images/Conversation_Context.jpg)
+![conversation_diagram](/images/Conversation_Context.jpg)
 
 There are four orange bullets, and each bullet represents the situation of the conversation context.
 
@@ -431,10 +432,6 @@ There are four orange bullets, and each bullet represents the situation of the c
     The app will check the context_action and call an internal function to retrieving the data or do other actions. I don't' want to make it more complicated; therefore, our example call function from Eikon Data API to get price or time-series data accordingly.
 
 We will add additional logics to handle the conversation context so you can find a complete code with new app logics from the ahsbot_demo_ws.py file.
-
-Below is a sample chat log after updating the codes to handle the conversation context.
-
-![MessengerChat](https://raw.githubusercontent.com/Refinitiv-API-Samples/Example.MessengerBotAPI.Python.InteractiveMessengerBotML/master/images/eikon_messenger.gif)
 
 The additional implementation is beneficial in case you need to get input from the user and run an internal function or call external service to get some other data and return to the user.
 
@@ -462,7 +459,7 @@ There are two files you need to run.
   ```
   It will run Tensorflow to create the model and save it to file like the following output.
 
-  ![MessengerChat](https://raw.githubusercontent.com/Refinitiv-API-Samples/Example.MessengerBotAPI.Python.InteractiveMessengerBotML/master/images/buildmodel.gif)
+  ![MessengerChat](/images/buildmodel.gif)
 
 * ahsbot_demo_ws.py is the main ChatBot app. 
 Modify the following section in the Python codes. Change it to your account.
@@ -495,15 +492,12 @@ You will see the following output when the Messenger BOT API connected to the se
 
 The Eikon Messenger will pop up the welcome message we just sent to the Chatroom like the following screenshot.
 
-![welcomechatbot](https://raw.githubusercontent.com/Refinitiv-API-Samples/Example.MessengerBotAPI.Python.InteractiveMessengerBotML/master/images/welcomechatbot.JPG)
+![welcomechatbot](/images/welcomechatbot.JPG)
 
 You can type 'bye' to left the Chatroom. The app will remove your account from the participant list and shows a message like the following screenshot.
 
-![quitchatbot](https://raw.githubusercontent.com/Refinitiv-API-Samples/Example.MessengerBotAPI.Python.InteractiveMessengerBotML/master/images/quitbot.JPG)
+![quitchatbot](/images/quitbot.JPG)
 
-Below is the sample output when testing the Messenger app with the ChatBot.
-
-![MessengerChat](https://github.com/Refinitiv-API-Samples/Example.MessengerBotAPI.Python.InteractiveMessengerBotML/blob/master/images/runmessenger.gif)
 
 # Conclusion
 
@@ -513,13 +507,13 @@ The future of Chatbots is very bright with the advancement in the Artificial Int
 
 # References
 
-* [Messenger Bot API](https://developers.refinitiv.com/messenger-api/messenger-bot-api)
+* [Messenger Bot API](https://developers.refinitiv.com/en/api-catalog/messenger-api/messenger-bot-api/)
 * [Refinitiv Messenger](https://www.refinitiv.com/en/products/refinitiv-messenger)
 * [Messenger Bot example](https://github.com/Refinitiv-API-Samples/Example.MessengerChatBot.Python)
-* [Messenger Bot API document](https://developers.refinitiv.com/messenger-api/messenger-bot-api/docs?content=81683&type=documentation_item)
+* [Messenger Bot API document](https://developers.refinitiv.com/en/api-catalog/messenger-api/messenger-bot-api/documentation)
 * [Keras GitHub Examples](https://github.com/keras-team/keras/tree/master/examples)
 * [Getting started with the Keras Sequential model](https://keras.io/getting-started/sequential-model-guide/)
 * [Build it Yourself — Chatbot API with Keras/TensorFlow Model](https://towardsdatascience.com/build-it-yourself-chatbot-api-with-keras-tensorflow-model-f6d75ce957a5) 
-* [Eikon Data API](https://developers.refinitiv.com/eikon-apis/eikon-data-api)
+* [Eikon Data API](https://developers.refinitiv.com/en/api-catalog/eikon/eikon-data-api)
 * [Natural Language Toolkits-NLTK](https://www.nltk.org/)
 
