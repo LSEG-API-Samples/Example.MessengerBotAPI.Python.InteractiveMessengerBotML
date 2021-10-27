@@ -498,6 +498,9 @@ You can type 'bye' to left the Chatroom. The app will remove your account from t
 
 ![quitchatbot](/images/quitbot.JPG)
 
+Below is the sample output when testing the Messenger app with the ChatBot.
+
+![MessengerChat](/images/runmessenger.gif)
 
 # Conclusion
 
@@ -516,4 +519,7 @@ The future of Chatbots is very bright with the advancement in the Artificial Int
 * [Build it Yourself — Chatbot API with Keras/TensorFlow Model](https://towardsdatascience.com/build-it-yourself-chatbot-api-with-keras-tensorflow-model-f6d75ce957a5) 
 * [Eikon Data API](https://developers.refinitiv.com/en/api-catalog/eikon/eikon-data-api)
 * [Natural Language Toolkits-NLTK](https://www.nltk.org/)
+
+# Article
+* [Build Refinitiv Messenger Interactive Chat Bot with Python Machine Learning and Messenger Bot API](https://developers.refinitiv.com/en/article-catalog/article/build-refinitiv-messenger-interactive-chatbot-python-machine-learning-messenger-bot-api)
 
