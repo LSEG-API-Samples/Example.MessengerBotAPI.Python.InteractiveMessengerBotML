@@ -9,7 +9,7 @@ bots for Refinitiv messenger or Eikon Messenger. The Bot API allows your applica
 into Refinitiv's Messenger service programmatically and also build interactive chatbots.
 The Bot API includes a REST API and also provides a WebSocket to listen to events and to allow a bot to respond. All request and response bodies are encoded in JSON.
 
-Today we are going to build our interactive Chatbot using Python with the [Messenger Bot API](hhttps://developers.refinitiv.com/en/api-catalog/messenger-api/messenger-bot-api). We will implement a chatbot from scratch that will be able to understand what the user is talking about and give an appropriate response like below sample conversation.
+Today we are going to build our interactive Chatbot using Python with the [Messenger Bot API](https://developers.refinitiv.com/en/api-catalog/messenger-api/messenger-bot-api). We will implement a chatbot from scratch that will be able to understand what the user is talking about and give an appropriate response like below sample conversation.
 
 ![Chat Conversation Sample](images/BotConversastion.JPG)
 
