@@ -9,7 +9,7 @@ bots for Refinitiv messenger or Eikon Messenger. The Bot API allows your applica
 into Refinitiv's Messenger service programmatically and also build interactive chatbots.
 The Bot API includes a REST API and also provides a WebSocket to listen to events and to allow a bot to respond. All request and response bodies are encoded in JSON.
 
-Today we are going to build our interactive Chatbot using Python with the [Messenger Bot API](hhttps://developers.refinitiv.com/en/api-catalog/messenger-api/messenger-bot-api). We will implement a chatbot from scratch that will be able to understand what the user is talking about and give an appropriate response like below sample conversation.
+Today we are going to build our interactive Chatbot using Python with the [Messenger Bot API](https://developers.refinitiv.com/en/api-catalog/messenger-api/messenger-bot-api). We will implement a chatbot from scratch that will be able to understand what the user is talking about and give an appropriate response like below sample conversation.
 
 ![Chat Conversation Sample](images/BotConversastion.JPG)
 
@@ -37,9 +37,9 @@ Conversations in messaging apps often need context. If you're conversing with a 
 pip install eikon
 ```
 
-* Please read [Messenger BOT API Quick Start Guide](https://developers.refinitiv.com/messenger-api/messenger-bot-api/quick-start) and follow the instruction in the guide to setup Chat Bot account and create a chat room for the test. 
+* Please read [Messenger BOT API Quick Start Guide](https://developers.refinitiv.com/en/api-catalog/messenger-api/messenger-bot-api/quick-start) and follow the instruction in the guide to setup Chat Bot account and create a chat room for the test. 
 
-* Please read [Bot API Developer document](https://developers.refinitiv.com/messenger-api/messenger-bot-api/docs?content=81683&type=documentation_item). You need to understand the HTTP request and response message, Websocket implementation for interactive Bot along with the structure of data and limitation of the API.
+* Please read [Bot API Developer document](https://developers.refinitiv.com/en/api-catalog/messenger-api/messenger-bot-api/documentation). You need to understand the HTTP request and response message, Websocket implementation for interactive Bot along with the structure of data and limitation of the API.
 
 * Python 3.7 or above
 
@@ -178,7 +178,9 @@ And this is the output of vocabulary creation. There are 16 intents or classes a
 
 ```
 119 documents
+
 16 classes ['changeconfidencelevel', 'clear_context', 'eikondataapipython', 'rtsdkdcompat', 'rtsdkdotnet', 'rtsdkdownload', 'rtsdkinfo', 'get_data', 'getsnapshot', 'gettimeseries', 'goodbye', 'greeting', 'options', 'thanks', 'rtsdkapi']
+
 107 unique stemmed words ['#', "'s", ',', '.', '.net', '4.x', 'a', 'ad', 'adh', 'adjust', 'al', 'any', 'anyon', 'ap', 'ar', 'awesom', 'be', 'bye', 'c', 'c++', 'can', 'chang', 'chat', 'clear', 'confid', 'context', 'could', 'dac', 'dat', 'day', 'desktop', 'do', 'downalod', 'download', 'downoad', 'eikon', 'real-time', 'em', 'esdk', 'et', 'for', 'from', 'gcc', 'get', 'github', 'giv', 'good', 'goodby', 'hello', 'help', 'hi', 'hist', 'how', 'i', 'is', 'jav', 'lat', 'latest', 'level', 'linux', 'list', 'me', 'next', 'nic', 'of', 'off', 'ok', 'on', 'op', 'os', 'plan', 'pric', 'provid', 'publ', 'python', 'real', 'reset', 'retreiv', 'retriev', 'rfa', 'rfa.net', 'rhel7', 'sdk', 'see', 'snapshot', 'stock', 'support', 'thank', 'that', 'ther', 'til', 'tim', 'timesery', 'to', 'rtds', 'ubuntu', 'up', 'us', 'vert', 'want', 'way', 'what', 'wher', 'which', 'window', 'with', 'you']
 ```
 
@@ -433,6 +435,10 @@ There are four orange bullets, and each bullet represents the situation of the c
 
 We will add additional logics to handle the conversation context so you can find a complete code with new app logics from the ahsbot_demo_ws.py file.
 
+Below is a sample chat log after updating the codes to handle the conversation context.
+
+![MessengerChat](/images/eikon_messenger.gif)
+
 The additional implementation is beneficial in case you need to get input from the user and run an internal function or call external service to get some other data and return to the user.
 
 ## Running ChatBot
@@ -498,9 +504,6 @@ You can type 'bye' to left the Chatroom. The app will remove your account from t
 
 ![quitchatbot](/images/quitbot.JPG)
 
-Below is the sample output when testing the Messenger app with the ChatBot.
-
-![MessengerChat](/images/runmessenger.gif)
 
 # Conclusion
 
